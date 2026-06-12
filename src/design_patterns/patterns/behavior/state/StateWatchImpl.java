@@ -56,8 +56,6 @@ class Cloak implements Mode {
     public void buttonC() {
         System.out.println("Clock light is turned on");
     }
-
-
 }
 
 

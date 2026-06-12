@@ -2,7 +2,7 @@ package design_patterns.patterns.creation.abstractfactory;
 
 import design_patterns.patterns.creation.abstractfactory.banking.BankingTeamFactory;
 
-public class SuperBankSystem {
+public class SuperBankSystemDemo {
     public static void main(String[] args) {
         ProjectTeamFactory projectTeamFactory = new BankingTeamFactory();
         Developer developer = projectTeamFactory.getDeveloper();

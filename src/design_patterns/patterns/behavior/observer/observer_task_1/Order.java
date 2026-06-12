@@ -1,4 +1,4 @@
-package design_patterns.head_first.observer.observer_task_1;
+package design_patterns.patterns.behavior.observer.observer_task_1;
 
 import java.util.UUID;
 

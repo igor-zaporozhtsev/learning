@@ -1,6 +1,6 @@
-package design_patterns.head_first.observer.observer_task_1;
+package design_patterns.patterns.behavior.observer.observer_task_1;
 
-import design_patterns.head_first.observer.observer_task_1.solution.OrderObserver;
+import design_patterns.patterns.behavior.observer.observer_task_1.solution.OrderObserver;
 
 public class InvoiceService implements OrderObserver {
 	@Override
