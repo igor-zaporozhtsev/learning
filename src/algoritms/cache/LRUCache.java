@@ -3,6 +3,7 @@ package algoritms.cache;
 import java.util.LinkedHashMap;
 import java.util.Map;
 
+/*
 public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     private final int maxSize;
 
@@ -17,7 +18,7 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 
     public static void main(String[] args) {
-        LRUCache<Integer, String> cache = new LRUCache<>(3);
+	    LRUCache<Integer, String> cache = new LRUCache<>(3);
 
         cache.put(1, "one");
         System.out.println(cache); // {1=one}
@@ -34,3 +35,4 @@ public class LRUCache<K, V> extends LinkedHashMap<K, V> {
     }
 }
 
+*/
