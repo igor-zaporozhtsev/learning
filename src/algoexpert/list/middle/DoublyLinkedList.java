@@ -1,4 +1,4 @@
-package algoexpert.linkedlist.middle;
+package algoexpert.list.middle;
 
 class Program {
 

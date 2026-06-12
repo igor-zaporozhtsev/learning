@@ -1,4 +1,4 @@
-package algoexpert.linkedlist.easy;
+package algoexpert.list.easy;
 
 public class RemoveDuplicates {
     public static void main(String[] args) {

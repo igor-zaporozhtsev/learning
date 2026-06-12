@@ -10,7 +10,7 @@ public class RemoveDuplicatesfromSortedArray {
 */
 
     public static void main(String[] args) {
-        int[] array = { 0,0,1,1,1,2,2,3,3,4 };
+	    int array[] = {1,2,2,2, 3,4,4,5};
         int[] array2 = {1,1,2};
         System.out.println(removeDuplicates2(array));
     }
