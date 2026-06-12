@@ -19,7 +19,7 @@ public class MethodReferenceDemo {
 		IntUnaryOperator abs = Math::abs;
 
 		//2. Reference to an instance method of a particular object
-		// Object::instanceMethodName
+		// Object::instanceMethodName/Instance::instanceMethodName
 		// myComparisonProvider::compareByName
 		//myApp::appendStrings2
 
@@ -27,7 +27,7 @@ public class MethodReferenceDemo {
 		IntSupplier intSupplier = random::nextInt;
 
 		//3. Reference to an instance method of an arbitrary(довільний) object of a particular type
-		// Type::methodName
+		// Type::methodName/Class::methodName
 		// String::compareToIgnoreCase
 		//String::concat
 		String hello = "Hello";

@@ -8,9 +8,10 @@ public class Demo_Object_and_Type_Same_Method {
 	public static void main(String[] args) {
 		//2 and 3 together use same method
 		//example 1
-		StatusControlService service1= new StatusControlService();
+		StatusControlService service1 = new StatusControlService();
 		Supplier<String> statusSupplier = service1::changeStatus;
 		Function<StatusControlService, String> statusFunction = StatusControlService::changeStatus;
+		statusFunction.apply(new StatusControlService());
 
 		//example 2
 		String hello = "hello";
@@ -24,7 +25,7 @@ public class Demo_Object_and_Type_Same_Method {
 		System.out.println(resultingString);
 
 		BiFunction<String, Integer, String> stringIntegerStringBiFunction = String::substring;
-		String peter = stringIntegerStringBiFunction.apply("Peter", 2);
+		String peter = stringIntegerStringBiFunction.apply(new String("Peter"), 2);
 		System.out.println(peter);
 	}
 }
