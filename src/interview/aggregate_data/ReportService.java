@@ -1,4 +1,4 @@
-package interview;
+package interview.aggregate_data;
 
 import java.util.ArrayList;
 import java.util.HashMap;
