@@ -4,7 +4,8 @@ import java.util.concurrent.atomic.AtomicInteger;
 import java.util.concurrent.atomic.LongAdder;
 
 public class SimpleCounterDemo1 {
-	static LongAdder value = new LongAdder();
+//	static LongAdder value = new LongAdder();
+	static int value;
 
 	public static void main(String[] args) throws InterruptedException {
 
@@ -52,6 +53,7 @@ public class SimpleCounterDemo1 {
 	}
 
 	public static void increment(){
-		value.increment();
+//		value.increment();
+		value++;
 	}
 }

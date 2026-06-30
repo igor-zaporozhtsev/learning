@@ -1,6 +1,5 @@
 package JavaCore.multithreading.dead_lock;
 
-import java.util.UUID;
 import java.util.concurrent.locks.Lock;
 import java.util.concurrent.locks.ReentrantLock;
 
