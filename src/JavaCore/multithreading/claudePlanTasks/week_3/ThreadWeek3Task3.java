@@ -38,6 +38,7 @@ public class ThreadWeek3Task3 {
 				throw new RuntimeException(e);
 			}
 			//from.value = from.value - amount;  -> correctness — чи правильно захищені змінні (тут все ок) перенесли цю строчку в нижній блок
+			//пояснення в Notion deadlock
 			synchronized (second){
 				from.value = from.value - amount;
 				to.value = to.value + amount;
