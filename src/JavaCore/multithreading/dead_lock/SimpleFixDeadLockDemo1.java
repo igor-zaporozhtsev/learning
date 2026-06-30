@@ -30,8 +30,6 @@ public class SimpleFixDeadLockDemo1 {
 	}
 
 	private static void transfer(Account from, Account to, int amount) {
-
-
 		try {
 			lock.lock();
 			Thread.sleep(200); // якщо потрібен для симуляції
