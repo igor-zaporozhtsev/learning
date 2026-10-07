@@ -13,10 +13,10 @@ public class FrontController {
 	public static void main(String[] args) {
 		ExecutorService executor = Executors.newFixedThreadPool(5);
 
-		// простий "контейнер"
+		// simple container
 		Router router = new Router();
-		router.register("/home", new HomeController());
-		router.register("/user", new UserController());
+		router.register("/api/v1/organizations", new OrganizationController());
+		router.register("/api/v1/users", new UserController());
 
 		DispatcherServlet dispatcher = new DispatcherServlet(router);
 
@@ -34,7 +34,7 @@ public class FrontController {
 
 
 // =======================
-// DISPATCHER (як у Spring)
+// DISPATCHER SERVLET (like in Spring)
 // =======================
 class DispatcherServlet {
 
@@ -80,20 +80,20 @@ interface Controller {
 // =======================
 // CONTROLLERS
 // =======================
-class HomeController implements Controller {
+class OrganizationController implements Controller {
 	public void handle() {
-		System.out.println(Thread.currentThread().getName() + ": home page");
+		System.out.println(Thread.currentThread().getName() + ": organizations page");
 	}
 }
 
 class UserController implements Controller {
 	public void handle() {
-		System.out.println(Thread.currentThread().getName() + ": user page");
+		System.out.println(Thread.currentThread().getName() + ": users page");
 	}
 }
 
 class DefaultController implements Controller {
 	public void handle() {
-		System.out.println(Thread.currentThread().getName() + ": 404");
+		System.out.println(Thread.currentThread().getName() + ": 404 not found");
 	}
 }
