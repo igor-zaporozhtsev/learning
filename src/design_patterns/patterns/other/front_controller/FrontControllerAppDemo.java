@@ -2,39 +2,46 @@ package design_patterns.patterns.other.front_controller;
 
 import java.util.Scanner;
 
-import java.util.*;
-import java.util.concurrent.*;
+import java.util.Map;
+import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
+import java.util.concurrent.Executors;
+import java.util.concurrent.TimeUnit;
 
 // =======================
-// ENTRY POINT (Front Controller)
+// ENTRY POINT (plays the role of the servlet container, e.g. Tomcat)
 // =======================
-public class FrontController {
+public class FrontControllerAppDemo {
 
-	public static void main(String[] args) {
+	public static void main(String[] args) throws InterruptedException {
+		// worker pool: one thread per request, like Tomcat
 		ExecutorService executor = Executors.newFixedThreadPool(5);
 
-		// simple container
 		Router router = new Router();
 		router.register("/api/v1/organizations", new OrganizationController());
 		router.register("/api/v1/users", new UserController());
 
+		// FRONT CONTROLLER: the single entry point for every request
 		DispatcherServlet dispatcher = new DispatcherServlet(router);
 
 		try (Scanner scanner = new Scanner(System.in)) {
-			while (scanner.hasNext()) {
-				String url = scanner.nextLine();
-
+			while (scanner.hasNextLine()) {
+				String url = scanner.nextLine().trim();
+				if (url.isEmpty()) {
+					continue;
+				}
 				executor.submit(() -> dispatcher.process(url));
 			}
+		} finally {
+			executor.shutdown();
+			executor.awaitTermination(5, TimeUnit.SECONDS);
 		}
-
-		executor.shutdown();
 	}
 }
 
 
 // =======================
-// DISPATCHER SERVLET (like in Spring)
+// DISPATCHER SERVLET (the Front Controller, like in Spring MVC)
 // =======================
 class DispatcherServlet {
 
@@ -45,8 +52,12 @@ class DispatcherServlet {
 	}
 
 	public void process(String url) {
-		Controller controller = router.getController(url);
-		controller.handle();
+		try {
+			Controller controller = router.getController(url);
+			controller.handle();
+		} catch (Exception e) {
+			System.out.println(Thread.currentThread().getName() + ": 500 internal error - " + e.getMessage());
+		}
 	}
 }
 
@@ -56,7 +67,7 @@ class DispatcherServlet {
 // =======================
 class Router {
 
-	private final Map<String, Controller> routes = new HashMap<>();
+	private final Map<String, Controller> routes = new ConcurrentHashMap<>();
 	private final Controller defaultController = new DefaultController();
 
 	public void register(String path, Controller controller) {
@@ -68,7 +79,6 @@ class Router {
 	}
 }
 
-
 // =======================
 // CONTROLLER CONTRACT
 // =======================
@@ -76,9 +86,8 @@ interface Controller {
 	void handle();
 }
 
-
 // =======================
-// CONTROLLERS
+// CONTROLLERS (singletons shared by all threads -> must be stateless, like Spring beans)
 // =======================
 class OrganizationController implements Controller {
 	public void handle() {
