@@ -2,19 +2,15 @@ package algoexpert.leetcode.tree;
 
 
 //226. Invert Binary Tree [DFS]
-public class InvertBinaryTree {
+public class InvertBinaryTree2 {
     public static void main(String[] args) {
         TreeNode root = new TreeNode(4,
                 new TreeNode(2,
-                        new TreeNode(1,null,null),
+                        new TreeNode(1, new TreeNode(-10, null, null), null),
                         new TreeNode(3, null, null)),
                 new TreeNode(7,
                         new TreeNode(6, null, null),
                         new TreeNode(9, null, null)));
-
-//        TreeNode root = new TreeNode(4,
-//                new TreeNode(2,null, null),
-//                new TreeNode(7,null, null));
 
         TreeNode treeNode = invertTree(root);
         System.out.println(treeNode);
@@ -23,19 +19,16 @@ public class InvertBinaryTree {
 
 
     static public TreeNode invertTree(TreeNode root) {
-        if (root == null){
-            return root;
-        }
+	    if (root == null) return root;
 
-        TreeNode temp = root.left;
-        root.left = root.right;
-        root.right = temp;
+		TreeNode left = invertTree(root.left);
+	    TreeNode right = invertTree(root.right);
 
-        invertTree(root.left);
-        invertTree(root.right);
+	    System.out.println("base case");
 
-        return root;
+	    root.left = right;
+	    root.right = left;
+
+	    return root;
     }
-
-
 }

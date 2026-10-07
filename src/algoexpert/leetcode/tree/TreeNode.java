@@ -24,12 +24,24 @@ class TreeNode {
     }
 
 
-    @Override
-    public String toString() {
-        return "TreeNode{" +
-                "val=" + val +
-                ", left=" + left +
-                ", right=" + right +
-                '}';
-    }
+	@Override
+	public String toString() {
+		return print(this, 0);
+	}
+
+	private String print(TreeNode node, int level) {
+		if (node == null) return "";
+
+		String result = "";
+
+		result += print(node.right, level + 1);
+
+		result += "    ".repeat(level) + node.val + "\n";
+
+		result += print(node.left, level + 1);
+
+		return result;
+	}
+
+
 }

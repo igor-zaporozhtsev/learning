@@ -1,9 +1,9 @@
-package algoexpert.leetcode;
+package algoexpert.leetcode.other;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class FizzBuzz {
+public class FizzBuzzForLoop {
     public static void main(String[] args) {
         System.out.println(fizzBuzz(15));
     }

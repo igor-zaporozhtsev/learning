@@ -15,8 +15,6 @@ public class ValidParentheses {
 //        System.out.println("9. false = " + isValid("]"));
 //        System.out.println("10. false = " + isValid("(){}}{"));
         System.out.println("11. false = " + isValid("({{{{}}}))"));
-
-
     }
 
     public static boolean isValid(String s) {

@@ -1,4 +1,4 @@
-package algoexpert.leetcode.arrays.two_pointers;
+package algoexpert.leetcode.two_pointers;
 
 public class BestTimetoBuyandSellStock_122 {
     //122. Best Time to Buy and Sell Stock II

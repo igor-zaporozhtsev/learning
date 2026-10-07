@@ -1,4 +1,4 @@
-package algoexpert.leetcode.arrays.two_pointers;
+package algoexpert.leetcode.two_pointers;
 
 public class RemoveDuplicatesFromSortedArray_04_2026 {
 

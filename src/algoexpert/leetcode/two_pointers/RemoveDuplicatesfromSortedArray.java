@@ -1,6 +1,4 @@
-package algoexpert.leetcode.arrays.two_pointers;
-
-import java.util.Arrays;
+package algoexpert.leetcode.two_pointers;
 
 public class RemoveDuplicatesfromSortedArray {
 
