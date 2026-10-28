@@ -1,7 +1,7 @@
 package algoexpert.leetcode.stack;
 
 import java.util.Stack;
-
+//155. Min Stack
 public class MinStackCodePath {
 
 	public static void main(String[] args) {
@@ -58,10 +58,8 @@ class MinStack5 {
 	}
 
 	public void pop() {
-		Integer value = stack.pop();
-		if (minStack.peek().equals(value)){
-			minStack.pop();
-		}
+		stack.pop();
+		minStack.pop();
 	}
 
 	public int top() {
